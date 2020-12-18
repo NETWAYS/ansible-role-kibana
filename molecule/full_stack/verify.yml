@@ -12,9 +12,9 @@
     register: elastic_password
     changed_when: false
   - name: Connect to Kibana
-    command: "curl --cacert /etc/kibana/certs/ca.crt -u elastic:{{ elastic_password.stdout }} http://ansible-role-kibana_full_stack:5601/api/status"
+    command: "curl --cacert /etc/kibana/certs/ca.crt -u elastic:{{ elastic_password.stdout }} http://{{ ansible_hostname }}:5601/api/status"
     register: curl_out
-    failed_when: "'Green' not in curl_out.content"
+    failed_when: "'Green' not in curl_out.stdout"
   # The following might be nicer but doesn't work
   #- name: Connect to Kibana
   #  uri:
