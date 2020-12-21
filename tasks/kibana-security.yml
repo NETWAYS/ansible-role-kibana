@@ -36,25 +36,19 @@
     - certificates
 - name: fetch Kibana password
   shell: |
-    set -o pipefail
     grep "PASSWORD kibana " /usr/share/elasticsearch/initial_passwords |
     awk {' print $4 '}
   register: kibana_password
   changed_when: false
   delegate_to: "{{ elasticsearch_ca }}"
-  args:
-    executable: /bin/bash
 - name: extract CA certificate
   shell: |
-    set -o pipefail
     echo "" |
     openssl pkcs12 -in /etc/kibana/certs/{{ ansible_hostname }}.p12 -cacerts -nokeys -out /etc/kibana/certs/ca.crt -password stdin
   args:
     creates: /etc/kibana/certs/ca.crt
   tags:
     - certificates
-  args:
-    executable: /bin/bash
 - name: Set permissions of CA certificate
   file:
     path: "/etc/kibana/certs/ca.crt"
