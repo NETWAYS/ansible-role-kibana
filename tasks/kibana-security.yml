@@ -42,6 +42,8 @@
   register: kibana_password
   changed_when: false
   delegate_to: "{{ elasticsearch_ca }}"
+  args:
+    executable: /bin/bash
 - name: extract CA certificate
   shell: |
     set -o pipefail
@@ -51,6 +53,8 @@
     creates: /etc/kibana/certs/ca.crt
   tags:
     - certificates
+  args:
+    executable: /bin/bash
 - name: Set permissions of CA certificate
   file:
     path: "/etc/kibana/certs/ca.crt"
