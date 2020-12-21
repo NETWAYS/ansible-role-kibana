@@ -8,6 +8,9 @@
     elasticsearch_ca: ansible-role-kibana_full_stack
     elasticsearch_http_security: true
   tasks:
+    - name: "Include Elastic Repos"
+      include_role:
+        name: "elastic-repos"
     - name: "Include Elasticsearch role"
       include_role:
         name: elasticsearch
