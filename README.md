@@ -1,7 +1,7 @@
 Role Name
 =========
 
-[![Molecule Tests](https://github.com/NETWAYS/ansible-role-kibana/workflows/Molecule%20Test/badge.svg?event=push)](https://github.com/NETWAYS/ansible-role-kibana/workflows/Molecule%20Test/badge.svg)
+[![Molecule Tests](https://github.com/widhalmt/ansible-role-kibana/workflows/Molecule%20Test/badge.svg?event=push)](https://github.com/widhalmt/ansible-role-kibana/workflows/Molecule%20Test/badge.svg)
 
 
 A brief description of the role goes here.
