@@ -5,3 +5,4 @@ kibana_manage_yaml: true
 kibana_elasticsearch_hosts:
   - localhost
 elastic_ca_dir: /opt/es-ca
+elastic_ca_pass: PleaseChangeMe

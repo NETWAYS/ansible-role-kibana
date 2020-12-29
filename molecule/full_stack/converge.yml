@@ -5,9 +5,6 @@
   hosts: all
   vars:
     elastic_stack_full_stack: true
-    elasticsearch_ca: kibana-full-stack
-    elasticsearch_http_security: true
-    elastic_ca_pass: PleaseChangeMe
   tasks:
     - name: "Include Elastic Repos"
       include_role:
