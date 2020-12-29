@@ -6,18 +6,18 @@
     changed_when: false
     args:
       creates: /etc/kibana/encryption_key
-  
+
   - name: fetch encryption key
     command: cat /etc/kibana/encryption_key
     changed_when: false
     register: kibana_encryption_key
-  
+
   - name: generate saved objects encryption key
     shell: openssl rand -base64 36 > /etc/kibana/savedobjects_encryption_key
     changed_when: false
     args:
       creates: /etc/kibana/savedobjects_encryption_key
-  
+
   - name: fetch saved objects encryption key
     command: cat /etc/kibana/savedobjects_encryption_key
     changed_when: false
