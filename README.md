@@ -16,6 +16,10 @@ Role Variables
 * *kibana_elasticsearch_hosts*: A list of DNS resolvable hostnames of Elasticsearch hosts to connect your Kibana instance to. (default: `- localhost`)
 * *kibana_manage_yaml*: Change Kibanas main configuration file (default: `true`)
 * *kibana_config_backup*: Keep backups if we change any configuration file (default: `true`)
+* *kibana_tls*: Whether to offer `https` for clients or not (default: `false`)
+* *kibana_tls_cert*: Path to the certificate Kibana should show to its clients (default: `/etc/kibana/certs/cert.pem`)
+* *kibana_tls_key*: Path to the key Kibana should use when communicating with clients (default: `/etc/kibana/certs/key.pem`)
+
 * *elastic_stack_full_stack*: Use `ansible-role-elasticsearch` as well (default: `false`)
 * *elasticsearch_ca*: Set to the inventory hostname of the host that should house the CA for certificates for inter-node communication. (default: First node in the `elasticsearch` host group)
 * *elastic_ca_dir*: Directory where on the Elasticsearch CA host certificates are stored. This is only useful in connection with out other Elastic Stack related roles. (default: `/opt/es-ca`)
