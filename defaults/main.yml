@@ -5,5 +5,7 @@ kibana_manage_yaml: true
 kibana_elasticsearch_hosts:
   - localhost
 kibana_tls: false
+kibana_tls_cert: /etc/kibana/certs/cert.pem
+kibana_tls_key: /etc/kibana/certs/key.pem
 
 elastic_ca_dir: /opt/es-ca
