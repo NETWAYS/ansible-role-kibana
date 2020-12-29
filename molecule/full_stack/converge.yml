@@ -5,13 +5,26 @@
   hosts: all
   vars:
     elastic_stack_full_stack: true
+    elasticsearch_http_security: true
   tasks:
     - name: "Include Elastic Repos"
       include_role:
         name: "elastic-repos"
+- name: Elasticsearch
+  hosts: elasticsearch
+  vars:
+    elastic_stack_full_stack: true
+    elasticsearch_http_security: true
+  tasks:
     - name: "Include Elasticsearch role"
       include_role:
         name: elasticsearch
+- name: Kibana
+  hosts: kibana
+  vars:
+    elastic_stack_full_stack: true
+    elasticsearch_http_security: true
+  tasks:
     - name: "Include Kibana"
       include_role:
         name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
