@@ -13,6 +13,6 @@ elasticsearch.hosts: [{% for host in kibana_elasticsearch_hosts %}"http://{{ hos
 
 {% if kibana_tls | bool %}
 server.ssl.enabled: true
-server.ssl.certificate: {% kibana_tls_cert %}
-server.ssl.key: {% kibana_tls_key %}
+server.ssl.certificate: "{{ kibana_tls_cert }}"
+server.ssl.key: "{{ kibana_tls_key }}"
 {% endif %}
