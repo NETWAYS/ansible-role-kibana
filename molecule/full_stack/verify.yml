@@ -4,6 +4,9 @@
 - name: Verify
   hosts: all
   tasks:
+  - name: Give some time for all services to connect
+    wait_for:
+      timeout: 120
   - name: Kibana checks
     block:
     - name: fetch kibana.yml
