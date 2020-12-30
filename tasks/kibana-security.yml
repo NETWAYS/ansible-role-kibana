@@ -1,5 +1,9 @@
 ---
 
+- name: Install openssl if security is activated
+  package:
+    name: openssl
+
 - name: Set elasticsearch_ca variable if not already done by user
   set_fact:
     elasticsearch_ca: "{{ groups['elasticsearch'][0] }}"
