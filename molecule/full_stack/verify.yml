@@ -14,7 +14,7 @@
       register: kibanayml
     - name: Show kibana.yml
       debug:
-        var: kibanayml.stdout
+        var: kibanayml.stdout_lines
     - name: Check for Kibana port
       wait_for:
         port: 5601
