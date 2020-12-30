@@ -17,7 +17,7 @@
         command: "curl -s --cacert /etc/kibana/certs/ca.crt -u elastic:{{ elastic_password.stdout }} http://{{ ansible_hostname }}:5601/api/status"
         register: curl_out
         failed_when: "'Green' not in curl_out.stdout"
-    when: kibana in group_names
+    when: "'kibana' in group_names"
   # The following might be nicer but doesn't work
   #- name: Connect to Kibana
   #  uri:
