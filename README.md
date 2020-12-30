@@ -23,6 +23,7 @@ Role Variables
 * *elastic_stack_full_stack*: Use `ansible-role-elasticsearch` as well (default: `false`)
 * *elasticsearch_ca*: Set to the inventory hostname of the host that should house the CA for certificates for inter-node communication. (default: First node in the `elasticsearch` host group)
 * *elastic_ca_dir*: Directory where on the Elasticsearch CA host certificates are stored. This is only useful in connection with out other Elastic Stack related roles. (default: `/opt/es-ca`)
+* *elastic_ca_pass*: Password for Elasticsearch CA (default: `PleaseChangeMe`)
 * *elastic_initial_passwords*: Path to file with initical elasticsearch passwords (default: `/usr/share/elasticsearch/initial_passwords`)
 
 If you don't change `kibana_elasticsearch_hosts`, certificate verification will skip hostname checks
