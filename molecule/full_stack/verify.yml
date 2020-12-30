@@ -19,6 +19,9 @@
         shell: grep "PASSWORD elastic " /usr/share/elasticsearch/initial_passwords | awk {' print $4 '}
         register: elastic_password
         changed_when: false
+        delegate_to: "{{ groups['elasticsearch'][0] }}"
+      - name: Connect to Elasticsearch
+        command: "curl -s --cacert /etc/kibana/certs/ca.crt -u elastic:{{ elastic_password.stdout }} http://{{ groups['elasticsearch'][0] }}:9200/_cat/indices"
       - name: Connect to Kibana
         command: "curl -s --cacert /etc/kibana/certs/ca.crt -u elastic:{{ elastic_password.stdout }} http://{{ ansible_hostname }}:5601/api/status"
         register: curl_out
