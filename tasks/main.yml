@@ -8,7 +8,7 @@
 - name: Set Elasticsearch hosts to localhost if no other information is available
   set_fact:
     kibana_elasticsearch_hosts:
-     - localhost
+      - localhost
   when: kibana_elasticsearch_hosts is undefined and groups['elasticsearch'] is undefined
 
 - name: install Kibana

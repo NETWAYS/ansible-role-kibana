@@ -1,6 +1,6 @@
 ---
 
-- name: Install openssl if security is activated
+- name: Make sure openssl is installed
   package:
     name: openssl
 
@@ -13,27 +13,27 @@
 
 - name: Block for key generation
   block:
-  - name: generate encryption key
-    shell: openssl rand -base64 36 > {{ elastic_ca_dir }}/encryption_key
-    changed_when: false
-    args:
-      creates: "{{ elastic_ca_dir }}/encryption_key"
+    - name: generate encryption key
+      shell: openssl rand -base64 36 > {{ elastic_ca_dir }}/encryption_key
+      changed_when: false
+      args:
+        creates: "{{ elastic_ca_dir }}/encryption_key"
 
-  - name: fetch encryption key
-    command: cat {{ elastic_ca_dir }}/encryption_key
-    changed_when: false
-    register: kibana_encryption_key
+    - name: fetch encryption key
+      command: cat {{ elastic_ca_dir }}/encryption_key
+      changed_when: false
+      register: kibana_encryption_key
 
-  - name: generate saved objects encryption key
-    shell: openssl rand -base64 36 > {{ elastic_ca_dir }}/savedobjects_encryption_key
-    changed_when: false
-    args:
-      creates: "{{ elastic_ca_dir }}/savedobjects_encryption_key"
+    - name: generate saved objects encryption key
+      shell: openssl rand -base64 36 > {{ elastic_ca_dir }}/savedobjects_encryption_key
+      changed_when: false
+      args:
+        creates: "{{ elastic_ca_dir }}/savedobjects_encryption_key"
 
-  - name: fetch saved objects encryption key
-    command: cat {{ elastic_ca_dir }}/savedobjects_encryption_key
-    changed_when: false
-    register: kibana_savedobjects_encryption_key
+    - name: fetch saved objects encryption key
+      command: cat {{ elastic_ca_dir }}/savedobjects_encryption_key
+      changed_when: false
+      register: kibana_savedobjects_encryption_key
   delegate_to: "{{ elasticsearch_ca }}"
   run_once: true
 
