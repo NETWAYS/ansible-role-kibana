@@ -8,7 +8,6 @@
   vars:
     elastic_stack_full_stack: true
     elasticsearch_http_security: false
-    elastic_variant: oss
   tasks:
     - name: "Include Elastic Repos"
       include_role:
