@@ -4,7 +4,7 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: kibana-full
+  - name: kibana-full-oss
     groups:
       - elasticsearch
       - kibana
