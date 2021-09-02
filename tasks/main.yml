@@ -23,6 +23,7 @@
 
 - import_tasks: kibana-security.yml
   when:
+    - elastic_stack_full_stack | bool
     - kibana_security | bool
     - elastic_variant == "elastic"
   tags:
