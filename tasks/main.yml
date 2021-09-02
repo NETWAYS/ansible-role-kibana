@@ -29,6 +29,7 @@
     - elastic_variant == "elastic"
   tags:
     - security
+
 - name: Configure Kibana
   template:
     src: kibana.yml.j2
@@ -40,11 +41,14 @@
   notify:
     - Restart Kibana
   when: kibana_manage_yaml | bool
+
 - name: start Kibana
   service:
     name: kibana
     state: started
+
 # the following is useful when running tests or extra tasks that need to have Kibana running
+
 - name: Wait for Kibana to start
   wait_for:
     host: localhost
