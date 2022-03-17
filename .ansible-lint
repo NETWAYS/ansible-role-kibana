@@ -3,3 +3,4 @@ skip_list:
   - 'role-name'
   - 'line-length'
   - yaml
+  - fqcn-builtins  # Use FQCN for builtin actions.
