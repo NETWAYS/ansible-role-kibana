@@ -25,7 +25,10 @@
       register: kibana_encryption_key
 
     - name: generate saved objects encryption key
-      shell: openssl rand -base64 36 > {{ elastic_ca_dir }}/savedobjects_encryption_key
+      shell: >
+        openssl rand
+        -base64 36 >
+        {{ elastic_ca_dir }}/savedobjects_encryption_key
       changed_when: false
       args:
         creates: "{{ elastic_ca_dir }}/savedobjects_encryption_key"
@@ -90,7 +93,12 @@
 - name: extract CA certificate
   shell: |
     echo "{{ kibana_tls_key_passphrase }}" |
-    openssl pkcs12 -in /etc/kibana/certs/{{ ansible_hostname }}.p12 -cacerts -nokeys -out /etc/kibana/certs/ca.crt -password stdin
+    openssl pkcs12
+    -in /etc/kibana/certs/{{ ansible_hostname }}.p12
+    -cacerts
+    -nokeys
+    -out /etc/kibana/certs/ca.crt
+    -password stdin
   args:
     creates: /etc/kibana/certs/ca.crt
   tags:
