@@ -83,7 +83,7 @@
   tags:
     - certificates
 - name: fetch Kibana password
-  shell: |
+  shell: >
     grep "PASSWORD kibana " /usr/share/elasticsearch/initial_passwords |
     awk {' print $4 '}
   register: kibana_password
@@ -91,7 +91,7 @@
   delegate_to: "{{ elasticsearch_ca }}"
 
 - name: extract CA certificate
-  shell: |
+  shell: >
     echo "{{ kibana_tls_key_passphrase }}" |
     openssl pkcs12
     -in /etc/kibana/certs/{{ ansible_hostname }}.p12
