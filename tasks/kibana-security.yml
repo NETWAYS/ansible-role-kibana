@@ -92,13 +92,12 @@
 
 - name: extract CA certificate
   shell: >
-    echo "{{ kibana_tls_key_passphrase }}" |
     openssl pkcs12
     -in /etc/kibana/certs/{{ ansible_hostname }}.p12
     -cacerts
     -nokeys
     -out /etc/kibana/certs/ca.crt
-    -password stdin
+    -password {{ kibana_tls_key_passphrase }}
   args:
     creates: /etc/kibana/certs/ca.crt
   tags:
