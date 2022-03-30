@@ -111,10 +111,3 @@
     Restart Kibana
   tags:
     - certificates
-
-- name: Set permissions of CA certificate
-  file:
-    path: "/etc/kibana/certs/ca.crt"
-    owner: root
-    group: kibana
-    mode: 0640
