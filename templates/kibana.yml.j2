@@ -1,4 +1,9 @@
 server.host: "0.0.0.0"
+{% if kibana_tls | bool %}
+server.publicBaseUrl: "{{ kibana_public_base_url | default(https://{{ ansible_nodename }}:5601) }}"
+{% else %}
+server.publicBaseUrl: "{{ kibana_public_base_url | default(http://{{ ansible_nodename }}:5601) }}"
+{% endif %}
 
 {% if elastic_stack_full_stack is defined and elastic_stack_full_stack | bool and kibana_security | bool  and elastic_variant == "elastic" %}
 elasticsearch.hosts: [{% for host in kibana_elasticsearch_hosts %}"https://{{ host }}:9200"{% if not loop.last %},{% endif %}{% endfor %}]
