@@ -21,7 +21,7 @@ Role Variables
 * *kibana_tls_key*: Path to the key Kibana should use when communicating with clients (default: `/etc/kibana/certs/key.pem`)
 
 * *kibana_security*: Activate TLS and authentication when connecting to Elasticsearch. **Note**: Only works when `elastic_stack_full_stack` is enabled. (default: `true`)
-* *kibana_public_base_url*: Set `server.publicBaseUrl` e.g. `https://kibana:5601` (default: derived from hostname)
+* *kibana_public_base_url*: Set `server.publicBaseUrl` e.g. `kibana:5601` (default: derived from hostname)
 
 These variables are identical over all our elastic related roles, hence the different naming scheme.
 

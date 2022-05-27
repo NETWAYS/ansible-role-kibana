@@ -22,6 +22,11 @@
     - kibana_elasticsearch_hosts is undefined
     - groups['elasticsearch'] is undefined
 
+- name: Set baseUrl to nodename as default
+  set_fact:
+    kibana_public_base_url: "{{ ansible_nodename }}:5601"
+  when: kibana_public_base_url is undefined
+
 - name: install Kibana
   package:
     name: kibana
