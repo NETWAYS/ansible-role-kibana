@@ -1,5 +1,4 @@
 server.host: "0.0.0.0"
-{% if kibana_tls | bool %}
 server.publicBaseUrl: "http{% if kibana_tls | bool %}s{% endif %}://{{ kibana_public_base_url }}"
 
 {% if elastic_stack_full_stack is defined and elastic_stack_full_stack | bool and kibana_security | bool  and elastic_variant == "elastic" %}
