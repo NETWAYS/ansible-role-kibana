@@ -25,7 +25,12 @@
 - name: Set baseUrl to nodename as default
   set_fact:
     kibana_public_base_url: "{{ ansible_nodename }}:5601"
-  when: kibana_public_base_url is undefined
+  when:
+    - kibana_public_base_url is undefined
+
+- name: DEBUG show base url
+  debug:
+    var: kibana_public_base_url
 
 - name: install Kibana
   package:
