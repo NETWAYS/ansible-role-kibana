@@ -1,5 +1,8 @@
+This repository is deprecated! Please use our new [Ansible Collection Elastic Stack](https://github.com/NETWAYS/ansible-collection-elasticstack) instead.
+=========================================================================================================================================================
+
 Ansible Role: Kibana
-=========
+
 
 [![Molecule Tests](https://github.com/widhalmt/ansible-role-kibana/workflows/Molecule%20Test/badge.svg?event=push)](https://github.com/widhalmt/ansible-role-kibana/workflows/Molecule%20Test/badge.svg)
 
